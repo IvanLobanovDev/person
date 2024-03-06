@@ -31,7 +31,7 @@ public class Person implements Serializable {
 	LocalDate birthDate;
 	@Setter
 //	Говорим, что поля address должны быть встроены в таблицу person
-	@Embedded
+//	@Embedded
 	Address address;
 
 }
