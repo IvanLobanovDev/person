@@ -24,6 +24,9 @@ public interface PersonRepository extends CrudRepository<Person, Integer> {
 	@Query("select new telran.java51.person.dto.CityPopulationDto(p.address.city, count(p)) from Person p group by p.address.city order by count(p) desc")
 	List<CityPopulationDto> getCitiesPopulation();
 	
+	
+//	так как мы возвращаем объекты Child и employee, то он сам будет понимать, что это объекты dtype которых соответствует этим классам
+//	Поэтому проверка по полям IsNotNull() не требуется
 	Stream<Child> findAllPersonsByKindergartenIsNotNull();
 	
 	Stream<Employee> findAllPersonsByCompanyIsNotNullAndSalaryBetween(Integer from, Integer to);
